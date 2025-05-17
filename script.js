@@ -9,7 +9,6 @@ function generateQRCode() {
   const erroInput = document.getElementById('erro-input')
 
   if (!url) {
-    alert("Por favor, insira uma URL.");
     erroInput.style.visibility = 'visible'
     return;
   }
@@ -45,13 +44,17 @@ function downloadQRCode() {
 
 function copyToClipboard() {
   const url = document.getElementById("urlInput").value;
+  const share = document.getElementById('share')
 
   if (!url) {
-    alert("Por favor, insira uma URLdasd.");
+    alert("Por favor, insira uma URL.");
     return;
   }
 
   navigator.clipboard.writeText(url)
-    .then(() => alert("URL copiada para a área de transferência!"))
+    .then(() => {
+        share.innerHTML = 'Copied successfully'
+        share.classList.add('active-button')
+    })
     .catch(() => alert("Falha ao copiar."));
 }

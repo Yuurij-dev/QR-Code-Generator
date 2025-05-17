@@ -199,6 +199,11 @@ body {
     color: #fff;
 }
 
+
+/* Active button */
+.container .area-code .buttons-box .active-button{
+    background-color: #47a926;
+}
 /* No visibility */
 .button-code{
     visibility: hidden;

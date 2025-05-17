@@ -1,5 +1,5 @@
-
-ScrollReveal().reveal('.logo', {
+window.onload = function() {
+  ScrollReveal().reveal('.logo', {
     origin: 'bottom',    
     distance: '100px',    
     duration: 1000,      
@@ -23,4 +23,6 @@ ScrollReveal().reveal('.logo', {
     delay: 0,         
     reset: false         
   });
+}
+
 

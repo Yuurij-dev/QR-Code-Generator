@@ -157,9 +157,12 @@ body {
 }
 
 /* Círculo de fundo */
+.box-for-qr{
+    position: relative;
+}
 .circle-bg {
   position: absolute;
-  top: 210px;
+  top: 3%;
   left: 50%;
   width: 350px;
   height: 350px;
@@ -172,8 +175,8 @@ body {
 /* Erro span */
 
 .erro-input{
-    transition: .3s ease;
     visibility: hidden;
+    transition: .3s ease;
     margin-top: 30px;
     width: 100%;
     height: 70px;

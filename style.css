@@ -16,7 +16,11 @@ body {
     align-items: center;
     justify-content: center;
 
-    background-color: #111629;
+    /* background-color: #111629; */
+
+    background-image: url('./assets/qa-bg.jpg');
+    background-position: center;
+    background-size: cover;
 }
 
 .container {
@@ -203,6 +207,10 @@ body {
 @media screen and (max-width: 520px) {
     .buttons{
         flex-direction: column;
+    }
+
+    body{
+        background-image: url('./assets/qa-bg-small.jpg');
     }
 }
 

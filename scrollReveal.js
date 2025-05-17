@@ -1,3 +1,4 @@
+
 ScrollReveal().reveal('.logo', {
     origin: 'bottom',    
     distance: '100px',    
@@ -16,9 +17,10 @@ ScrollReveal().reveal('.logo', {
   
 
   ScrollReveal().reveal('.button-code', {
-    origin: 'right',    
+    origin: 'bottom',    
     distance: '100px',    
     duration: 1000,      
     delay: 0,         
     reset: false         
   });
+

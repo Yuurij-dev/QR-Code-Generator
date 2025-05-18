@@ -36,10 +36,23 @@ function downloadQRCode() {
     return;
   }
 
-  const link = document.createElement("a");
-  link.href = img.src;
-  link.download = "qrcode.png";
-  link.click();
+  // Converte a imagem base64 em blob
+  fetch(img.src)
+    .then(res => res.blob())
+    .then(blob => {
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "qrcode.png";
+      document.body.appendChild(link); // Necessário para alguns browsers
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url); // Libera a memória
+    })
+    .catch(err => {
+      alert("Erro ao tentar baixar o QR Code.");
+      console.error(err);
+    });
 }
 
 function copyToClipboard() {

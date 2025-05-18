@@ -1,5 +1,13 @@
 let qr;
 
+  const qrcode = new QRCode(document.getElementById("qrcode"), {
+    text: "https://seusite.com",
+    width: 200,
+    height: 200,
+    correctLevel: QRCode.CorrectLevel.H
+  });
+
+
 function generateQRCode() {
   const url = document.getElementById("urlInput").value;
   const qrContainer = document.getElementById("qrcode");
@@ -28,32 +36,26 @@ function generateQRCode() {
   });
 }
 
-function downloadQRCode() {
-  const img = document.querySelector("#qrcode img");
+  function downloadQRCode() {
+    // Seleciona o canvas diretamente
+    const canvas = document.querySelector('#qrcode canvas');
 
-  if (!img) {
-    alert("Por favor, gere um QR Code primeiro.");
-    return;
-  }
+    if (!canvas) {
+      alert("Por favor, gere um QR Code primeiro.");
+      return;
+    }
 
-  // Converte a imagem base64 em blob
-  fetch(img.src)
-    .then(res => res.blob())
-    .then(blob => {
+    canvas.toBlob(function (blob) {
       const url = URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = "qrcode.png";
-      document.body.appendChild(link); // Necessário para alguns browsers
-      link.click();
-      document.body.removeChild(link);
-      URL.revokeObjectURL(url); // Libera a memória
-    })
-    .catch(err => {
-      alert("Erro ao tentar baixar o QR Code.");
-      console.error(err);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "qrcode.png";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
     });
-}
+  }
 
 function copyToClipboard() {
   const url = document.getElementById("urlInput").value;

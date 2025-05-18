@@ -56,6 +56,7 @@ function generateQRCode() {
       URL.revokeObjectURL(url);
     });
   }
+  //
 
 function copyToClipboard() {
   const url = document.getElementById("urlInput").value;
